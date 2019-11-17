@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring'
 export default function Card(props) {
     const [hov, setHov] = useState(false)
     const myImage = getImages(props.name) // incase they were not given to us in users
-    const myAmount = parseInt(props.info.amount.substr(1).replace(/,/g, '')) // convert str to number for animation
+    const myAmount = parseInt(props ? props.info.amount.substr(1).replace(/,/g, '') : "0") // convert str to number for animation
     const { data } = usePalette(myImage) // grabs different colors from the image
     const myColor = props.name.includes('atrick') ? data.lightMuted : data.lightVibrant // Patricks lightVibrant was the exact same pink as his color
     // const myColor = 'white'
